@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: dev
+    
+# 상위 active를 어떤 걸로 설정함에 따라 dev.yml 또는 prod.yml이 돌아가는지 정할수 있다
+# 디폴티는 dev이고 이는 개발용(보통 127.0.0.1) 그리고 서버에 전개할 때는 prod를 사용

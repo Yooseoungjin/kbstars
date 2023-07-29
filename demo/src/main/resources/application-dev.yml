@@ -1,0 +1,39 @@
+server:
+  port: 80
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:oracle:thin:@49.50.174.130:1521:xe
+    username: chun
+    password: "111111"
+  mvc:
+    view:
+      prefix: "/WEB-INF/views/"
+      suffix: ".jsp"
+mybatis:
+  type-aliases-package: com.chflower.dto
+  mapper-locations: /mybatis/*.xml
+logging:
+  level:
+    root: info
+
+# log4jdbc 설정
+log4jdbc:
+  spylogdelegator:
+    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+  dump:
+    sql:
+      maxlinelength: 0
+
+
+# User Define
+app:
+  imgdir: file:///c:/mainproject/uimg/
+  logdir: file:///c:/mainproject/logs/
+  uploadimgdir: file:///c:/mainproject/uimg/
+  adminserver: http://127.0.0.1:8090
+  serviceserver: http://127.0.0.1

@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\kbstars\demo\.metadata\.plugins\org.eclipse.jdt.core
+3229204744.index

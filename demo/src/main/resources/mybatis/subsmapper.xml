@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chflower.mapper.SubsMapper">
+
+    <select id="select" parameterType="int" resultType="subs">
+        SELECT * FROM subsinfo WHERE subs_id=#{subs_id}
+    </select>
+    <select id="selectall" resultType="subs">
+        SELECT * FROM subsinfo
+    </select>
+    <select id="selectcust" parameterType="String" resultType="subs">
+        SELECT * FROM subsinfo WHERE cust_id=#{cust_id} order by subs_id desc
+    </select>
+    <select id="getlast" resultType="int">
+        SELECT MAX(subs_id) from subsinfo
+    </select>
+    <insert id="insert" parameterType="subs">
+        INSERT INTO subsinfo VALUES ((SELECT MAX(subs_id) from subsinfo)+1, #{cust_id}, #{subsitem_id}, #{subs_amount}, #{minus_point}, #{subs_pay_amount}, SYSDATE)
+    </insert>
+    <update id="update" parameterType="subs">
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM subsinfo WHERE subs_id=#{subs_id}
+    </delete>
+
+</mapper>
